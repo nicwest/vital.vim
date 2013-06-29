@@ -4,10 +4,10 @@
 let s:S = vital#of('vital').import('Database.SQLite')
 call s:S.debug_mode_to(0)
 let t = reltime()
-call s:S.query_rawdata(
+echo s:S.query_rawdata(
       \ 'a.db',
       \ 'CREATE TABLE people (id int, friend int);')
-call s:S.query_rawdata(
+echo s:S.query_rawdata(
       \ 'a.db',
       \ 'CREATE INDEX _id ON people (id);')
 let query = 'BEGIN TRANSACTION;'
@@ -31,3 +31,7 @@ echo reltimestr(reltime(t))
 " at b6a03fbc685bb789bf5afe2fe8c7bb0ddaa0cea6
 " this was 14.648742 on ujihisa's zenbook gentoo. thanks ichigok!
 " this was 11.648742 on ujihisa's mbr gentoo. thanks ichigok!
+
+" at 6932db78d9cfa7136bf35bb6919675fa078f5097
+" this was 40.749305sec on ujihisa's computer (zenbook/gentoo/ssd/i5)
+" 28sec with transaction

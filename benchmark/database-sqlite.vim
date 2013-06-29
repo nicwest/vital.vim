@@ -13,7 +13,7 @@ call s:S.query_rawdata(
 let query = 'BEGIN TRANSACTION;'
 for i in range(0, 999)
   let query .= printf(
-        \ 'INSERT INTO people VALUES (%s, %s);',
+        \ "INSERT INTO people VALUES (%s, %s);\n",
         \ i, (i + 1) % 1000)
 endfor
 let query .= 'COMMIT;'
